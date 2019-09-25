@@ -17,7 +17,6 @@
 		FA1276C2232022A000EBDCAB /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1276AE232022A000EBDCAB /* Scene.swift */; };
 		FA1276C3232022A000EBDCAB /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1276AE232022A000EBDCAB /* Scene.swift */; };
 		FA1276C4232022A000EBDCAB /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1276AE232022A000EBDCAB /* Scene.swift */; };
-		FA7B9B752326C2AD00B1F828 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B9B742326C2AD00B1F828 /* Mode.swift */; };
 		FAA6F8DE2322C86E004B1AFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA6F8DD2322C86E004B1AFA /* ViewController.swift */; };
 		FAA6F8E02322C907004B1AFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA6F8DF2322C907004B1AFA /* AppDelegate.swift */; };
 		FAA6F8E52322C972004B1AFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA6F8E32322C972004B1AFA /* LaunchScreen.storyboard */; };
@@ -52,7 +51,6 @@
 		FA1276AB232022A000EBDCAB /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
 		FA1276AD232022A000EBDCAB /* ghost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ghost.wav; sourceTree = "<group>"; };
 		FA1276AE232022A000EBDCAB /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
-		FA7B9B742326C2AD00B1F828 /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		FAA6F8DD2322C86E004B1AFA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FAA6F8DF2322C907004B1AFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA6F8E42322C972004B1AFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 				FAA6F8DF2322C907004B1AFA /* AppDelegate.swift */,
 				FAA6F8E92322D158004B1AFA /* SKSceneButton.swift */,
 				FAA6F8ED2322D6A5004B1AFA /* MapViewController.swift */,
-				FA7B9B742326C2AD00B1F828 /* Mode.swift */,
 			);
 			path = ScavengerHunt;
 			sourceTree = "<group>";
@@ -281,7 +278,6 @@
 			files = (
 				FAA6F8E02322C907004B1AFA /* AppDelegate.swift in Sources */,
 				FAA6F8DE2322C86E004B1AFA /* ViewController.swift in Sources */,
-				FA7B9B752326C2AD00B1F828 /* Mode.swift in Sources */,
 				FAA6F8EA2322D158004B1AFA /* SKSceneButton.swift in Sources */,
 				FAA6F8EE2322D6A5004B1AFA /* MapViewController.swift in Sources */,
 				FA1276C2232022A000EBDCAB /* Scene.swift in Sources */,
