@@ -17,7 +17,6 @@
 		FA1276C2232022A000EBDCAB /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1276AE232022A000EBDCAB /* Scene.swift */; };
 		FA1276C3232022A000EBDCAB /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1276AE232022A000EBDCAB /* Scene.swift */; };
 		FA1276C4232022A000EBDCAB /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1276AE232022A000EBDCAB /* Scene.swift */; };
-		FA1276E32320259F00EBDCAB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA1276E22320259F00EBDCAB /* Default-568h@2x.png */; };
 		FA7B9B752326C2AD00B1F828 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B9B742326C2AD00B1F828 /* Mode.swift */; };
 		FAA6F8DE2322C86E004B1AFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA6F8DD2322C86E004B1AFA /* ViewController.swift */; };
 		FAA6F8E02322C907004B1AFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA6F8DF2322C907004B1AFA /* AppDelegate.swift */; };
@@ -53,7 +52,6 @@
 		FA1276AB232022A000EBDCAB /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
 		FA1276AD232022A000EBDCAB /* ghost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ghost.wav; sourceTree = "<group>"; };
 		FA1276AE232022A000EBDCAB /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
-		FA1276E22320259F00EBDCAB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA7B9B742326C2AD00B1F828 /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		FAA6F8DD2322C86E004B1AFA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FAA6F8DF2322C907004B1AFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,7 +90,6 @@
 		FA12766E2320218100EBDCAB = {
 			isa = PBXGroup;
 			children = (
-				FA1276E22320259F00EBDCAB /* Default-568h@2x.png */,
 				FA1276792320218100EBDCAB /* ScavengerHunt */,
 				FA1276782320218100EBDCAB /* Products */,
 			);
@@ -254,7 +251,6 @@
 				FA1276BF232022A000EBDCAB /* ghost.wav in Resources */,
 				FAA6F8E52322C972004B1AFA /* LaunchScreen.storyboard in Resources */,
 				FAF295122320301A00C41D43 /* Assets.xcassets in Resources */,
-				FA1276E32320259F00EBDCAB /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
