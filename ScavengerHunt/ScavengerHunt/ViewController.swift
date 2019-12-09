@@ -14,13 +14,6 @@ import MapKit
 
 class ViewController: UIViewController, ARSKViewDelegate, CLLocationManagerDelegate {
     
-    private let activityManager = CMMotionActivityManager()
-    private let pedometer = CMPedometer()
-    
-    let activityTypeLabel = SKLabelNode(text: "Status")
-    let stepsCountLabel = SKLabelNode(text: "Steps")
-    let locationManager = CLLocationManager()
-    
     @IBOutlet var sceneView: ARSKView!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -39,6 +32,8 @@ class ViewController: UIViewController, ARSKViewDelegate, CLLocationManagerDeleg
         let scene = Scene(size: sceneView.bounds.size)
         scene.scaleMode = .resizeFill
         sceneView.presentScene(scene)
+        
+        //startUpdating()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,52 +63,10 @@ class ViewController: UIViewController, ARSKViewDelegate, CLLocationManagerDeleg
         return min + Int(arc4random_uniform(UInt32(max - min + 1)))
     }
     
-    private func startTrackingActivityType() {
-      activityManager.startActivityUpdates(to: OperationQueue.main) {
-          [weak self] (activity: CMMotionActivity?) in
-
-          guard let activity = activity else { return }
-          DispatchQueue.main.async {
-              if activity.walking {
-                  self?.activityTypeLabel.text = "Walking"
-              } else if activity.stationary {
-                  self?.activityTypeLabel.text = "Stationary"
-              } else if activity.running {
-                  self?.activityTypeLabel.text = "Running"
-              } else if activity.automotive {
-                  self?.activityTypeLabel.text = "Automotive"
-              }
-          }
-      }
-    }
-    
-    private func startCountingSteps() {
-      pedometer.startUpdates(from: Date()) {
-          [weak self] pedometerData, error in
-          guard let pedometerData = pedometerData, error == nil else { return }
-
-          DispatchQueue.main.async {
-              self?.stepsCountLabel.text = pedometerData.numberOfSteps.stringValue
-          }
-      }
-    }
-    
-    func startUpdating() {
-      if CMMotionActivityManager.isActivityAvailable() {
-          startTrackingActivityType()
-        print(self.stepsCountLabel.text!)
-        print(self.activityTypeLabel.text!)
-      }
-
-      if CMPedometer.isStepCountingAvailable() {
-          startCountingSteps()
-      }
-    }
-    
     // MARK: - ARSKViewDelegate
     
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
-        let id = randomInt(min: 1, max: 1)
+        let id = randomInt(min: 1, max: Int(MAXBSIZE))
         
         let node = SKSpriteNode(imageNamed: "image\(id)")
         node.name = "image"
@@ -121,7 +74,7 @@ class ViewController: UIViewController, ARSKViewDelegate, CLLocationManagerDeleg
         return node
     }
     
-    func session(_ session: ARSession, didFailWithError error: Error) {
+/*    func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
         
     }
@@ -134,5 +87,5 @@ class ViewController: UIViewController, ARSKViewDelegate, CLLocationManagerDeleg
     func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
-    }
+    } */
 }

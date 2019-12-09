@@ -5,33 +5,45 @@
 //
 
 import SpriteKit
+import SceneKit
 import ARKit
 
 class Scene: SKScene {
         
     var creationTime : TimeInterval = 0
-    var viewController: ViewController = ViewController(nibName: nil, bundle: nil)
+    var viewController : ViewController? = ViewController(nibName: nil, bundle: nil)
     var nodeCount = 0
+    var labelsPlaced: Bool = false
     
     override func didMove(to view: SKView) {
         
     }
     
     override func update(_ currentTime: TimeInterval) {
+        if labelsPlaced != true{
+            let buttonTexture: SKTexture! = SKTexture(imageNamed: "map")
+            let buttonTextureSelected: SKTexture! = SKTexture(imageNamed: "buttonSelected.png")
+            let backBtn = SKSceneButton(defaultTexture: buttonTexture, selectedTexture:buttonTextureSelected, disabledTexture: buttonTexture)
+            backBtn.setButtonAction(target: self, triggerEvent: .TouchUpInside, action: #selector(Scene.backBtnTap))
+            backBtn.size = CGSize(width: 50, height: 50)
+            backBtn.position = CGPoint(x: self.frame.midX - 160, y: self.frame.midY + 240)
+            backBtn.zPosition = 1
+            backBtn.name = "backBtn"
+            let backBtnLabel = SKLabelNode(text: "Map")
+            backBtnLabel.fontColor = UIColor.blue
+            backBtnLabel.position = CGPoint(x: self.frame.midX - 160, y: self.frame.midY + 200)
+            backBtnLabel.fontSize = 20
+            backBtnLabel.fontName = "AppleSDGothicNeo-Regular"
+            backBtnLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode(rawValue: 1)!
+            self.addChild(backBtn)
+            self.addChild(backBtnLabel)
+            labelsPlaced = true
+        }
         // Called before each frame is rendered
         if currentTime > creationTime {
             createNode()
             creationTime = currentTime + TimeInterval(randomFloat(min: 3.0, max: 6.0))
-            viewController.startUpdating()
         }
-          let buttonTexture: SKTexture! = SKTexture(imageNamed: "button")
-          let buttonTextureSelected: SKTexture! = SKTexture(imageNamed: "buttonSelected.png")
-          let backBtn = SKSceneButton(defaultTexture: buttonTexture, selectedTexture:buttonTextureSelected, disabledTexture: buttonTexture)
-        backBtn.setButtonAction(target: self, triggerEvent: .TouchUpInside, action: #selector(Scene.backBtnTap))
-        backBtn.position = CGPoint(x: self.frame.midX + 150, y: self.frame.midY + 200)
-        backBtn.zPosition = 1
-        backBtn.name = "backBtn"
-        self.addChild(backBtn)
     }
     
     func randomFloat(min: Float, max: Float) -> Float {
@@ -47,7 +59,7 @@ class Scene: SKScene {
     }
     
     func createNode(){
-        guard (self.view as? ARSKView) != nil else {
+        guard let sceneView = self.view as? ARSKView else {
             return
         }
         
@@ -71,10 +83,12 @@ class Scene: SKScene {
         let transform = simd_mul(rotation, translation)
         
         // Create an anchor
-        _ = ARAnchor(transform: transform)
+        let anchor = ARAnchor(transform: transform)
         
         // Add the anchor
-       // sceneView.session.add(anchor: anchor)
+        if nodeCount >= 5{
+            sceneView.session.add(anchor: anchor)
+        }
         
         // Increment the counter
         nodeCount += 1
@@ -103,6 +117,9 @@ class Scene: SKScene {
                 // Create an action sequence
                 let sequenceAction = SKAction.sequence([groupKillingActions, remove])
                 
+                //save captured item
+                DataManager.instance.insertIntoInventory(Item: node.name!)
+            
                 // Excecute the actions
                 node.run(sequenceAction)
                 

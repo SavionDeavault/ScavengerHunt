@@ -1,2 +1,4 @@
 # ScavengerHunt
- ScavengerHunt for iOS !
+
+My BPA contest app!
+
